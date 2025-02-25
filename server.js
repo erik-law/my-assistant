@@ -2,15 +2,20 @@ const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
 const app = express();
+
 const port = process.env.PORT || 3000; // Render использует свой порт, поэтому лучше использовать переменную окружения
+
+const port = 3000;
 
 // Middleware для обработки JSON
 app.use(express.json());
+
 
 // Обработка GET-запросов к корневому пути
 app.get('/', (req, res) => {
   res.send('Сервер работает!');
 });
+
 
 // Маршрут для обработки запросов от фронтенда
 app.post('/ask-assistant', async (req, res) => {
